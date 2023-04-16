@@ -18,6 +18,9 @@
 </head>
 
 <body>
+    <div class="container">
+        <span class="counter">Punti =</span><span id="counter" class="counter">0</span>
+    </div>
     <div id="tavolo"></div>
     <script>
         let NcarteGirate=0
@@ -28,21 +31,24 @@
             tavolo.innerHTML += '<img id="' + element + '" src="retropokemon.retro.jpg" onclick="gira(this)" />'
  
         });
+        var counter = document.getElementById("counter");
+        var count = 0;
         function gira(carta) {
-           
-           NcarteGirate++
-           carta.src = carta.id
-           console.log(NcarteGirate)
-           if(NcarteGirate ==1)
-           primaCartaGirata = carta
-           else {
-            NcarteGirate = 0 
-            if (carta.src ==primaCartaGirata.src)
-            console.log('BRAVO +1 punto')
-            else{
-                console.log('RIPROVACI')
-                carta.src="retropokemon.retro.jpg"
-                primaCartaGirata.src ="retropokemon.retro.jpg"
+            NcarteGirate++
+            console.log(NcarteGirate)
+            carta.src = carta.id
+            if (NcarteGirate == 1)
+                primaCartaGirata = carta
+            else {
+                NcarteGirate = 0
+                if (carta.src == primaCartaGirata.src) {
+                    count++;
+                    counter.textContent = count;
+                } else {
+                    setTimeout(function() {
+                        carta.src = "retropokemon.retro.jpg";
+                        primaCartaGirata.src = "retropokemon.retro.jpg";
+                    }, 1000);
             }
            }
 
