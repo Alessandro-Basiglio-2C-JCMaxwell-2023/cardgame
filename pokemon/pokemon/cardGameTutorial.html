@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gira la Carta</title>
+
+    <style>
+        img {
+            width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="tavolo"></div>
+    <div id="score"></div>
+    <script>
+        let NcarteGirate=0
+        primaCartaGirata= null
+        let carte = ["fronte.pokemon.webp","fronte.pokemon.webp","carta-1.png","carta-1.png","carta.2.png","carta.2.png","carta.3.webp","carta.3.webp","carta.4.webp","carta.4.webp","cata.5.png","cata.5.png","carta.6.png","carta.6.png","carta.7.png","carta.7.png","carta.8.png","carta.8.png"]
+        let tavolo = document.querySelector("#tavolo")
+        carte.forEach(element => {
+            tavolo.innerHTML += '<img id="' + element + '" src="retropokemon.retro.jpg" onclick="gira(this)" />'
+ 
+        });
+        function gira(carta) {
+           
+           NcarteGirate++
+           carta.src = carta.id
+           console.log(NcarteGirate)
+           if(NcarteGirate ==1)
+           primaCartaGirata = carta
+           else {
+            NcarteGirate = 0 
+            if (carta.src ==primaCartaGirata.src)
+            console.log('BRAVO +1 punto')
+            else{
+                console.log('RIPROVACI')
+                // gira le carte scoperte sul retro
+                setTimeout(()=>{
+                carta.src="retropokemon.retro.jpg"
+                primaCartaGirata.src ="retropokemon.retro.jpg"
+            }, 2000)
+           }
+        }
+    
+        }
+    </script>
+</body>
