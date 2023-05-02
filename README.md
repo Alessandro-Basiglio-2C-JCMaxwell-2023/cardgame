@@ -1,4 +1,4 @@
-# MEMORI CARD 
+# MEMORY CARD 
 # INTRODUZIONE DEL GIOCO 
 ## Il classico gioco a cui giocavamo da bambini fatto su html. Ho utilizzato le carte pokemon sempre per ricollegarmi all'infanzia .
 
